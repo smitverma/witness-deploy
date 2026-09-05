@@ -1,0 +1,72 @@
+/* Canonical application tooltip treatment, matching Replay's MessageViewer controls. */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  position: absolute;
+  z-index: 60;
+  top: calc(100% + 6px);
+  left: 50%;
+  padding: 4px 6px;
+  border: 1px solid #343b45;
+  border-radius: 3px;
+  color: #dce1e8;
+  background: #101419;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 28%);
+  content: attr(data-tooltip);
+  font-size: var(--font-size-compact, 10px);
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -2px);
+  transition: opacity 50ms ease, transform 50ms ease;
+  white-space: nowrap;
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after,
+[data-tooltip]:focus-within::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+[data-tooltip][data-tooltip-placement="above"]::after {
+  top: auto;
+  bottom: calc(100% + 6px);
+  transform: translate(-50%, 2px);
+}
+
+[data-tooltip][data-tooltip-placement="above"]:hover::after,
+[data-tooltip][data-tooltip-placement="above"]:focus-visible::after,
+[data-tooltip][data-tooltip-placement="above"]:focus-within::after {
+  transform: translate(-50%, 0);
+}
+
+[data-tooltip][data-tooltip-align="end"]::after {
+  right: -6px;
+  left: auto;
+  transform: translateY(-2px);
+}
+
+[data-tooltip][data-tooltip-align="end"]:hover::after,
+[data-tooltip][data-tooltip-align="end"]:focus-visible::after,
+[data-tooltip][data-tooltip-align="end"]:focus-within::after {
+  transform: translateY(0);
+}
+
+[data-tooltip][data-tooltip-placement="above"][data-tooltip-align="end"]::after {
+  transform: translateY(2px);
+}
+
+[data-tooltip][data-tooltip-placement="above"][data-tooltip-align="end"]:hover::after,
+[data-tooltip][data-tooltip-placement="above"][data-tooltip-align="end"]:focus-visible::after,
+[data-tooltip][data-tooltip-placement="above"][data-tooltip-align="end"]:focus-within::after {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tooltip]::after {
+    transition: none;
+  }
+}

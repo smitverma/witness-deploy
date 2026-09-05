@@ -1,0 +1,155 @@
+/* Witness amazing tour — proxy background matched */
+.driver-popover.witness-driver-popover {
+  background: var(--surface, #292929) !important;
+  color: var(--text, #dce1e8) !important;
+  border: 1px solid var(--border-strong, #3a424d) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04) inset !important;
+  max-width: 460px !important;
+  font-family: Inter, "SF Pro Text", ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+}
+
+.driver-popover.witness-driver-popover .driver-popover-title {
+  color: var(--text, #d7dde5) !important;
+  font-family: Inter, "SF Pro Text", ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.35 !important;
+}
+
+.driver-popover.witness-driver-popover .driver-popover-description {
+  color: var(--muted, #929ba8) !important;
+  font-family: Inter, "SF Pro Text", ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+
+.driver-popover.witness-driver-popover .driver-popover-description b {
+  color: var(--text, #dce1e8) !important;
+  font-weight: 650 !important;
+}
+
+.driver-popover.witness-driver-popover .driver-popover-description code {
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  background: var(--surface-2, #1b2028) !important;
+  color: var(--text, #dce1e8) !important;
+  font-size: 12px !important;
+}
+
+.driver-popover.witness-driver-popover .driver-popover-footer {
+  border-top: 1px solid var(--border, #2c333d) !important;
+  padding-top: 10px !important;
+  margin-top: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.driver-popover.witness-driver-popover .driver-popover-progress-text {
+  color: var(--muted, #737e8b) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: .02em !important;
+}
+
+.driver-popover.witness-driver-popover button.driver-popover-next-btn,
+.driver-popover.witness-driver-popover button.driver-popover-prev-btn {
+  min-height: 30px !important;
+  padding: 0 14px !important;
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  font-family: Inter, "SF Pro Text", ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--text, #dce1e8) !important;
+  cursor: pointer !important;
+  transition: all .15s ease !important;
+}
+
+.driver-popover.witness-driver-popover button.driver-popover-next-btn {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--accent, #9ca3af) !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+}
+
+.driver-popover.witness-driver-popover button.driver-popover-next-btn:hover {
+  background: transparent !important;
+  color: var(--text, #dce1e8) !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+.driver-popover.witness-driver-popover button.driver-popover-prev-btn:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--text, #dce1e8) !important;
+}
+
+.driver-popover.witness-driver-popover button.driver-popover-close-btn {
+  color: var(--muted, #929ba8) !important;
+  opacity: .7 !important;
+}
+.driver-popover.witness-driver-popover button.driver-popover-close-btn:hover { opacity: 1 !important; }
+
+/* Always-visible Skip */
+.witness-skip-btn {
+  min-height: 30px !important;
+  padding: 0 12px !important;
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  font-family: Inter, "SF Pro Text", ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--muted, #929ba8) !important;
+  cursor: pointer !important;
+  margin-right: auto !important;
+}
+.witness-skip-btn:hover {
+  color: var(--text, #dce1e8) !important;
+  background: var(--surface-2, #1b2028) !important;
+  border-color: var(--border, #2c333d) !important;
+}
+
+/* Stage highlight */
+.driver-overlay path {
+  fill: rgba(0,0,0,.72) !important;
+}
+
+.driver-active .witness-tour-pulse {
+  animation: witness-pulse 1.4s ease-in-out infinite !important;
+  box-shadow: 0 0 0 0 rgba(156,163,175,.45) !important;
+}
+
+@keyframes witness-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(156,163,175,.45); }
+  70% { box-shadow: 0 0 0 10px rgba(156,163,175,0); }
+  100% { box-shadow: 0 0 0 0 rgba(156,163,175,0); }
+}
+
+.witness-popover-enter {
+  animation: witness-popover-in .18s ease-out !important;
+}
+@keyframes witness-popover-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Arrow — match proxy surface */
+.driver-popover.witness-driver-popover .driver-popover-arrow {
+  border-color: var(--surface, #292929) !important;
+}
+.driver-popover.witness-driver-popover .driver-popover-arrow-side-top,
+.driver-popover.witness-driver-popover .driver-popover-arrow-side-bottom {
+  border-top-color: var(--surface, #292929) !important;
+}
+
+/* Progress dots subtle */
+.driver-popover-progress-text {
+  font-variant-numeric: tabular-nums !important;
+}

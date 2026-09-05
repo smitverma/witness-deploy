@@ -1,0 +1,69 @@
+[package]
+name = "witness"
+version = "0.1.0-alpha"
+description = "A modern manual web security testing suite"
+authors = ["Witness contributors"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "witness_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+tauri-plugin-stronghold = "2"
+iota_stronghold = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+# Minimal Tokio features for the proxy/async runtime: multi-threaded scheduler,
+# macros (select!/test), sync (Mutex/RwLock/watch/broadcast), time (timeouts),
+# io-util/io-std (AsyncReadExt/Write), net (TcpListener/Stream), fs (metadata).
+# Avoids `full` (which pulls signal/process/parking_lot extras) to keep the
+# binary lean while retaining everything the proxy, history, and autosave use.
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time", "io-util", "io-std", "net", "fs"] }
+tokio-util = "0.7"
+bytes = "1"
+httparse = "1"
+http = "1"
+h2 = "0.4"
+h3 = "0.0.8"
+h3-quinn = "0.0.10"
+quinn = { version = "0.11.7", default-features = false, features = ["runtime-tokio", "rustls-aws-lc-rs"] }
+rcgen = { version = "0.13", features = ["pem", "x509-parser"] }
+rustls = "0.23"
+rustls-pemfile = "2"
+tokio-rustls = "0.26"
+webpki-roots = "1"
+flate2 = "1"
+brotli = "8"
+dirs = "6"
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+x509-parser = "0.16"
+rusqlite = { version = "0.38", features = ["bundled"] }
+base64 = "0.22"
+percent-encoding = "2"
+html-escape = "0.2"
+regex = "1"
+zip = { version = "8", default-features = false, features = ["deflate"] }
+rfd = "0.16"
+sysinfo = "=0.38.4"
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
+tauri-plugin-updater = "2"
+tauri-plugin-process = "2"
+
+[dev-dependencies]
+tempfile = "3"
