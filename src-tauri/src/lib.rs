@@ -27,6 +27,9 @@ use tauri::Manager;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    rustls::crypto::aws_lc_rs::default_provider()
+        .install_default()
+        .expect("failed to install rustls crypto provider");
     let state = AppState::new();
     {
         use tracing_subscriber::prelude::*;
